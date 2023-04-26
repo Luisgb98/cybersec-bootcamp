@@ -1,0 +1,170 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    spider                                             :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: lguisado <lguisado@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/04/14 15:20:58 by lguisado          #+#    #+#              #
+#    Updated: 2023/04/20 16:29:47 by lguisado         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+#!/goinfre/lguisado/miniconda3/envs/42AI-lguisado/bin/python3.7
+
+import sys
+import os
+import requests
+from bs4 import BeautifulSoup
+
+# Global variables
+extensions = ["png", "jpg", "jpeg", "gif", "bmp"]
+local = False
+path = "data/"
+depth = 5
+oldhrefList = []
+hrefList = []
+oldimageList = []
+imageList = []
+
+def error(n):
+	if n == 1:
+		print("Program work with these params")
+		print("  ./spider [-rlpS] URL")
+		print("  ./spider -r URL")
+		print("  ./spider -r -l [N] URL")
+		print("  ./spider -p [PATH] URL")
+
+def create_directory():
+	print("Trying to add directory...")
+	os.system("rm -rf " + path)
+	os.mkdir(path)
+	print("Directory successfully created")
+
+def request_url(urltoscrap):
+	# Request URL
+	if "http" in urltoscrap:
+		try:
+			requests.get(urltoscrap, headers={"User-Agent":"Mozilla/5.0"})
+		except:
+			print("ERROR")
+			exit()
+		getURL = requests.get(urltoscrap, headers={"User-Agent":"Mozilla/5.0"})
+		# Parser url
+		soup = BeautifulSoup(getURL.text, 'html.parser')
+	elif ".html" in urltoscrap:
+		localPath = urltoscrap
+		if "file://" in urltoscrap:
+			localPath = urltoscrap.replace("file://", "")
+		try:
+			open(localPath, "r")
+		except:
+			print("ERROR")
+			exit()
+		with open(localPath, "r") as htmlFile:
+			soup = BeautifulSoup(htmlFile.read(), 'html.parser')
+	else:
+		print("ERROR")
+		exit()
+	return soup
+
+def find_all(hrefListToVisit, urltoscrap):
+	for ref in oldhrefList:
+		soup = request_url(ref)
+		href = soup.find_all('a')
+		images = soup.find_all('img')
+		for link in href:
+			refAdd = link.get('href')
+			# Only take ref that has main url in it
+			if refAdd and urltoscrap in refAdd:
+				if refAdd not in oldhrefList:
+					hrefListToVisit.append(refAdd)
+		for image in images:
+			imageAdd = image.get('src')
+			# Only take img that has main url in it
+			if imageAdd and urltoscrap in imageAdd:
+				for extension in extensions:
+					if extension in imageAdd:
+						if imageAdd not in oldimageList:
+							oldimageList.append(imageAdd)
+	# save new refs to visit it
+	for ref in hrefListToVisit:
+		oldhrefList.append(ref)
+	for ref in oldhrefList:
+		if ref not in hrefList:
+			hrefList.append(ref)
+	for image in oldimageList:
+		if image not in imageList:
+			imageList.append(image)
+	return hrefListToVisit
+
+def recursive_href(hrefListToVisit, mainURL):
+	global depth, extensions, oldhrefList, hrefList, oldhrefList, imageList
+	urltoscrap = mainURL
+	if local == True:
+		urltoscrap = mainURL.split('/')[-1].replace('.html', "")
+	if depth > 0:
+		hrefListToVisit = []
+		hrefListToVisit = find_all(hrefListToVisit, urltoscrap)
+		hrefListToVisit = list(dict.fromkeys(hrefListToVisit))
+		depth -= 1
+		recursive_href(hrefListToVisit, urltoscrap)
+	save_img(imageList)
+		
+def get_href(urltoscrap):
+	global local, oldhrefList
+	if ".html" in urltoscrap:
+		local = True
+	oldhrefList.append(urltoscrap)
+	recursive_href("", urltoscrap)
+
+def save_img(imageList):
+	create_directory()
+	imageList = list(dict.fromkeys(imageList))
+	n = -1
+	# Download images
+	for image in imageList:
+		if local == True:
+			with open(image, 'rb') as localImage:
+				webs = localImage.read()
+		else:
+			webs = requests.get(image)
+		global path
+		if not path[len(path) - 1] == '/':
+			path += '/'
+		n += 1
+		with open(path + "image{:>02}.".format(n) + image.split('.')[-1], 'wb') as img_write:
+			if local == True:
+				img_write.write(webs)
+			else:
+				img_write.write(webs.content)
+	print("Done")
+	exit()
+
+def choose_option(argv):
+	global depth, path
+	if argv[1] == "-r" and argv[2] == "-l":
+		depth=int(argv[3])
+		get_href(argv[4])
+	elif argv[1] == "-r":
+		get_href(argv[2])
+	elif argv[1] == "-p":
+		path = argv[2]
+		get_href(argv[3])
+	else:
+		print("ERROR")
+
+def main():
+	global depth
+	if len(sys.argv) == 1:
+		error(1)
+	elif len(sys.argv) == 2:
+		depth = 1
+		get_href(sys.argv[1])
+	elif len(sys.argv) > 2 and len(sys.argv) < 6:
+		choose_option(sys.argv)
+	else:
+		error(1)
+
+if __name__ == "__main__":
+    main()

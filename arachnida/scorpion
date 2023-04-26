@@ -1,0 +1,58 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    scorpion                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: lguisado <lguisado@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/04/19 20:20:52 by lguisado          #+#    #+#              #
+#    Updated: 2023/04/20 16:28:07 by lguisado         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+#!/goinfre/lguisado/miniconda3/envs/42AI-lguisado/bin/python3.7
+
+import sys
+import exifread
+
+# Global variables
+extensions = ["png", "jpg", "jpeg", "gif", "bmp"]
+imageDict = {}
+exifDict = {}
+
+def read_img(img):
+	global imageDict, exifDict
+	try:
+		open(img, 'rb')
+	except:
+		print("Couldn't read this file")
+		return
+	with open(img, 'rb') as f:
+		exif_data = exifread.process_file(f)
+	for data in exif_data.keys():
+		if "Image" in data:
+			imageDict[data] = exif_data[data]
+		if "EXIF" in data:
+			exifDict[data] = exif_data[data]
+	for key in imageDict.keys():
+		print ("{}: {}".format(key, imageDict[key]))
+	for key in exifDict.keys():
+		print ("{}: {}".format(key, exifDict[key]))
+
+def main():
+	n = len(sys.argv)
+	for i in range(1, n):
+		if i > 1:
+			print()
+		print ("-- Metada from image {}: --\n".format(i))
+		n = 0
+		for extension in extensions:
+			if extension in sys.argv[i]:
+				read_img(sys.argv[i])
+				n = 0
+			n += 1
+			if n == 5:
+				print("Wrong extension provided")
+
+if __name__ == "__main__":
+    main()

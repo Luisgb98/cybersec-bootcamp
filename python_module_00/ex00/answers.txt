@@ -1,0 +1,5 @@
+conda list
+conda search -i numpy
+conda remove numpy
+conda install numpy
+conda list python --export > requirements.txt
