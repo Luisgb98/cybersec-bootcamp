@@ -1,0 +1,139 @@
+* {
+  box-sizing: border-box;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+p {
+  font-size: 13px;
+}
+
+/* FIRST CONTAINER */
+#first-container {
+  background-color: #E5E8E8;
+  width: auto;
+  height: fit-content;
+  display: flex;
+  justify-content: space-between;
+}
+
+body {
+  background-color: white;
+  background-image: url("https://images.unsplash.com/photo-1588345921523-c2dcdb7f1dcd");
+  margin: 0;
+}
+
+.phone {
+  width: 230px;
+}
+.phone p {
+  margin-left: 10px;
+}
+.phone i {
+	margin-top: 12px;
+}
+
+.search {
+  width: auto;
+  height: fit-content;
+}
+.search button {
+  width: auto;
+  height: auto;
+  background-color: #E74C3C;
+  border-radius: 6px;
+  color: white;
+  border: 0;
+}
+.search button:hover {
+  background-color: #b4382b;
+}
+
+input {
+  border-radius: 6px;
+  border: 0;
+}
+
+.phone, .search {
+  display: flex;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+/* SECOND CONTAINER */
+#second-container {
+  background-color: #F2F4F4;
+  width: auto;
+  height: fit-content;
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  align-items: center;
+}
+
+.navbar {
+  align-items: center;
+}
+.navbar ul {
+  list-style: none;
+  display: flex;
+}
+.navbar li {
+  margin-right: 30px;
+}
+.navbar li:last-child {
+  margin-right: 0;
+}
+.navbar li a {
+  text-decoration: none;
+  color: black;
+}
+
+.logo, .navbar {
+  display: flex;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+.logo img {
+  width: 60px;
+  height: 60px;
+}
+
+/* THIRD CONTAINER */
+#third-container {
+  position: absolute;
+  bottom: 0;
+  background-color: #E5E8E8;
+  margin-top: auto;
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  justify-content: space-between;
+}
+
+.design p {
+  margin: 0;
+}
+
+.social {
+  display: flex;
+}
+.social .tag {
+  margin-right: 10px;
+}
+.social .tag:last-child {
+  margin-right: 0;
+}
+
+.design, .social {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 100px;
+  margin-right: 100px;
+}

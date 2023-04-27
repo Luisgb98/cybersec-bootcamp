@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/process.css">
+    <script src="https://kit.fontawesome.com/ae305d274c.js" crossorigin="anonymous"></script>
+    <title>Site empresarial</title>
+</head>
+<body>
+    <header>
+        <div id="first-container">
+            <div class="phone">
+                <i class="fa-solid fa-phone"></i>
+                <p>+34 068 999 123</p>
+            </div>
+            <div class="search">
+                <input type="search" placeholder="Búsqueda" title="Búsqueda">
+                <button><span class="fa-solid fa-magnifying-glass"></span></button>
+            </div>
+        </div>
+        <div id="second-container">
+            <div class="logo">
+                <a href="index.html"><img srcset="https://upload.wikimedia.org/wikipedia/commons/1/1e/RPC-JP_Logo.png"></a>
+            </div>
+            <div class="navbar">
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="process.html">PROCESS</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div id="info-container">
+            <div class="nginx">
+                <div class="title">
+                    <h4>NGINX</h4>
+                </div>
+                <div class="install">
+                    <h5>$> apt install nginx</h5>
+                </div>
+                <div class="info">
+                    <p>■ Move to /var/www/, make a dir with your site name to save our html files</p>
+                    <p>■ Now, move to /etc/nginx/ to configure our server</p>
+                    <p>■ Inside sites-available, we'll create a file with your site name, and we'll configure our server</p>
+                    <p>■ Inside this file, write the next code</p>
+                    <p class="code">server {<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;listen 80;<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;root /var/www/site_name;<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;index index.html;<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;server_name site_name www.site_name;<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;location / {<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;try_files $uri $uri/ =404;<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+					}<br>
+					</p>
+					<p>■ Now make a symbolic link in sites-enabled to make nginx know that it needs to run it</p>
+					<p>&nbsp;&nbsp;&nbsp;&nbsp;$> ln -s /etc/nginx/sites-available/site-name /etc/nginx/sites-enabled/site-name</p>
+					<p>■ Restart your nginx service and you can access to your site on localhost:80</p>
+					<p>&nbsp;&nbsp;&nbsp;&nbsp;$> service nginx restart</p>
+				</div>
+				<div class="infobutton">
+                    <form action="https://jgefroh.medium.com/a-guide-to-using-nginx-for-static-websites-d96a9d034940">
+						<input type="submit" value="More info" />
+					</form>
+                </div>
+            </div>
+            <div class="ssh">
+                <div class="title">
+                    <h4>SSH</h4>
+                </div>
+                <div class="install">
+                    <h5>$> apt install openssh-server</h5>
+                </div>
+                <div class="info">
+                    <p>■ Move to /etc/ssh/ and edit sshd_config</p>
+                    <p>■ Now we look for port, uncomment and add 4242</p>
+					<p>&nbsp;&nbsp;&nbsp;&nbsp;Port 4242</p>
+                    <p>■ Now look for PermitRootLogin and change it to yes</p>
+					<p>&nbsp;&nbsp;&nbsp;&nbsp;PermitRootLogin yes</p>
+                    <p>■ Now restart your ssh service and we're done</p>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;$> service ssh restart</p>
+                </div>
+				<div class="infobutton">
+                    <form action="https://linuxhint.com/enable-ssh-server-debian/">
+						<input type="submit" value="More info" />
+					</form>
+                </div>
+            </div>
+            <div class="tor">
+                <div class="title">
+                    <h4>TOR</h4>
+                </div>
+                <div class="install">
+                    <h5>$> apt install tor</h5>
+                </div>
+                <div class="info">
+                    <p>■ Move to /etc/tor/ and edit torrc file</p>
+                    <p>■ Look for HiddenServiceDir and HiddenServicePort and uncomment it</p>
+                    <p>
+						&nbsp;&nbsp;&nbsp;&nbsp;HiddenServiceDir /var/lib/tor/hidden_service/<br>
+						&nbsp;&nbsp;&nbsp;&nbsp;HiddenServicePort 80 127.0.0.1:80
+					</p>
+                    <p>■ Restart your tor service</p>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;$> service tor restart</p>
+					<p>■ Now move to /var/lib/tor/hidden_service and cat Hostname and we have our .onion ready</p>
+                </div>
+				<div class="infobutton">
+                    <form action="https://community.torproject.org/relay/setup/bridge/debian-ubuntu/">
+						<input type="submit" value="More info" />
+					</form>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div id="third-container">
+            <div class="design">
+                <p>© Copyright 2023</p>
+                <p>Designed by lguisado</p>
+            </div>
+            <div class="social">
+                <div class="tag facebook">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </div>
+                <div class="tag twitter">
+                    <i class="fa-brands fa-twitter"></i>
+                </div>
+                <div class="tag linkedin">
+                    <i class="fa-brands fa-linkedin"></i>
+                </div>
+                <div class="tag pinterest">
+                    <i class="fa-brands fa-pinterest"></i>
+                </div>
+                <div class="tag google">
+                    <i class="fa-brands fa-google-plus"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

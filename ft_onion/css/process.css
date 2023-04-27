@@ -1,0 +1,90 @@
+main {
+  width: 1200px;
+  height: fit-content;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* PRICE CONTAINER */
+#info-container {
+  width: 1200px;
+  height: auto;
+  display: flex;
+}
+
+p {
+	text-align: left;
+	margin-left: 13px;
+}
+
+.nginx, .ssh, .tor {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  border: 1px solid #c9caca;
+  border-radius: 6px;
+  background-color: white;
+}
+
+.ssh, .tor {
+  margin-left: 30px;
+}
+
+.ssh {
+  border: 1px solid #E74C3C;
+  border-radius: 6px;
+}
+.ssh .title {
+  background-color: #E74C3C;
+  color: white;
+}
+
+.title {
+  background-color: #E5E8E8;
+  border-radius: 4px 4px 0 0;
+}
+
+.install {
+  background-color: black;
+  color: white;
+}
+
+.title, .install, .infobutton {
+  text-align: center;
+  padding: 20px;
+}
+
+.info {
+  margin-top: 15px;
+  width: 400px;
+  padding: 5px;
+  text-align: center;
+}
+
+.code {
+	text-align: left;
+	font-size: 13px;
+	margin-left: 25px;
+}
+
+.infobutton {
+	margin-top: auto;
+	background-color: #E5E8E8;
+	border-radius: 0 0 4px 4px;
+}
+
+.infobutton input {
+	width: 100px;
+	height: 30px;
+	background-color: #E74C3C;
+	color: white;
+	border-radius: 6px;
+	border: 0;
+}
+
+.infobutton input:hover {
+	background-color: #b4382b;
+	cursor:	 pointer;
+}
