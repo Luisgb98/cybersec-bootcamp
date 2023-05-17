@@ -1,6 +1,6 @@
 # Progreso
 
-|   Proyecto    | Tema                                                                                                      |  Puntuación   |
+|  Proyect Name | Subject                                                                                                   |     Score     |
 |:-------------:|:--------------------------------------------------------------------------------------------------------- |:-------------:|
 |python_module_00| List of small scripts to learn Python.                                                                   | **100** / 100 |
 |   arachnida   | Image [Web Scrapping](https://en.wikipedia.org/wiki/Web_scraping).                                        | **100** / 100 |
