@@ -1,0 +1,14 @@
+version: "3.9"
+services:
+  irondome:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    tty: true
+    ports:
+      - "4242:4242"
+    volumes:
+      - /Users/lguisado/Documents/irondome/log:/var/log/irondome
+      - /Users/lguisado/Documents/irondome/:/root/
+    container_name: irondome
+ 
