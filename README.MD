@@ -10,3 +10,4 @@
 |    tsunami    | [Buffer overflow](https://en.wikipedia.org/wiki/Buffer_overflow) on Windows XP using strlcpy.             |   **100** / 100  |
 |   stockholm   | [Ramsonware](https://en.wikipedia.org/wiki/Ransomware) simulation.                                        |   **100** / 100  |
 |   iron_dome   |  Daemon service that detect anomalous activity by monitoring different operating system parameters.       |   **125** / 100  |
+|    recovery   | Script to get info about some artifacts in Windows 10          											|	**115** / 100  |
