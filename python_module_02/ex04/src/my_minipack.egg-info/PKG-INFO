@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: my-minipack
+Version: 1.0.0
+Author: lguisado
+Author-email: lguisado@student.42malaga.com
+Project-URL: Bug Tracker, package issues URL
+Classifier: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE.md
+
+The goal of the exercise is to learn how to build a package and understand the magnificence of `PyPi`.
+
+I used this [page](https://www.freecodecamp.org/news/how-to-create-and-upload-your-first-python-package-to-pypi/) to get some info about it.
+
+## How to install our first package
+```bash
+bash build.sh
+```
+## How can you use it on your python project?
+After installing the package, you can use it like this:
+```python
+import my_minipack
+```

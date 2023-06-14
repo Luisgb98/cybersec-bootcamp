@@ -4,6 +4,7 @@
 |:-------------:|:--------------------------------------------------------------------------------------------------------- |:----------------:|
 |python_module_00| List of small scripts to learn Python 00.                                                                |   **100** / 100  |
 |python_module_01| List of small scripts to learn Python 01.																|   **100** / 100  |
+|python_module_02| List of small scripts to learn Python 02.																|   **100** / 100  |
 |   arachnida   | Image [Web Scrapping](https://en.wikipedia.org/wiki/Web_scraping).                                        |   **100** / 100  |
 |    ft_otp     | [TOTP](https://en.wikipedia.org/wiki/Time-based_one-time_password) key creation.                          |   **96** / 100   |
 |   ft_onion    | [.onion](https://en.wikipedia.org/wiki/.onion) page using nginx and tor.   							    |   **125** / 100  |
