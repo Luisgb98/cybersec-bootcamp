@@ -1,4 +1,11 @@
-# Progress
+## 42 Malaga - 2nd Cybersecurity Bootcamp
+This repository contains all the projects I have done during the `2nd Cybersecurity Bootcamp` at `42 Malaga`. The bootcamp took place from *2023-04-11* to *2023-06-16*.
+
+<p align="center"> 
+	<a href="https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2FLuisgb98%2Fcybersec-bootcamp"><img src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2FLuisgb98%2Fcybersec-bootcamp&label=Visitors&countColor=%232ccce4&labelStyle=upper" /></a>
+</p>
+
+## Progress
 
 |  Proyect Name | Subject                                                                                                   |       Score      |
 |:-------------:|:--------------------------------------------------------------------------------------------------------- |:----------------:|
@@ -12,8 +19,16 @@
 | ft_blockchain | [Blockchain](https://en.wikipedia.org/wiki/Blockchain) made with Python									|	**100** / 100  |
 |    tsunami    | [Buffer overflow](https://en.wikipedia.org/wiki/Buffer_overflow) on Windows XP using strlcpy.             |   **100** / 100  |
 |   stockholm   | [Ramsonware](https://en.wikipedia.org/wiki/Ransomware) simulation.                                        |   **100** / 100  |
-|   iron_dome   |  Daemon service that detect anomalous activity by monitoring different operating system parameters.       |   **125** / 100  |
+|   iron_dome   | Daemon service that detect anomalous activity by monitoring different operating system parameters.        |   **125** / 100  |
 |    recovery   | Script to get info about some artifacts in Windows 10.          											|	**115** / 100  |
 |   inquisitor  | [ARP spoofing](https://en.wikipedia.org/wiki/ARP_spoofing) and [Man in the Middle](https://en.wikipedia.org/wiki/Man-in-the-middle_attack). | **125** / 100 |
 |    vaccine    | [SQL injection](https://en.wikipedia.org/wiki/SQL_injection) scanner and attack.                          |   **125** / 100  |
 |   extraction  | Read MFT and disk to extract deleted files and recover them.                                              |   **100** / 100  |
+
+> **Note**  
+> Each project has its own README.md with more information about it.
+
+## Holygraph
+<p align="center"> 
+	<img src="resources/holygraph.png" />
+</p>
