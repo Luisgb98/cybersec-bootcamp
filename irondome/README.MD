@@ -1,3 +1,5 @@
+Project made with [@cherrero42](https://github.com/cherrero42).
+
 ## Requisites
 - Program needs to be execute as daemon service.
 - Only root user can execute it.

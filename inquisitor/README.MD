@@ -1,3 +1,5 @@
+Project made with [@cherrero42](https://github.com/cherrero42).
+
 ## What this program does?
 This program simulates a [ARP spoofing](https://en.wikipedia.org/wiki/ARP_spoofing). Using Docker, it creates a network with 3 containers: 1 router and 2 hosts. The router is the gateway of the hosts. The hosts are connected to the router and can communicate with each other. The router is also connected to the internet. The hosts can access the internet through the router. The router is also connected to the attacker. The attacker can sniff or modify the traffic between the hosts and the router.
 

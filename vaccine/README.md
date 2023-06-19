@@ -1,3 +1,5 @@
+Project made with [@cherrero42](https://github.com/cherrero42).
+
 ## What this script does?
 This script is a battery of tests to run against a given `URL` to be able to detect [SQL injection](https://en.wikipedia.org/wiki/SQL_injection) vulnerabilities. It detect type of database engine. The tests can be based on several types: union, error, boolean, time and even blind.
 
